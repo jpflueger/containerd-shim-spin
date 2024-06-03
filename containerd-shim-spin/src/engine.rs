@@ -24,9 +24,9 @@ use spin_trigger::{loader, RuntimeConfig, TriggerExecutor, TriggerExecutorBuilde
 use spin_trigger_http::HttpTrigger;
 use spin_trigger_redis::RedisTrigger;
 use tokio::runtime::Runtime;
+use trigger_amqp::AmqpTrigger;
 use trigger_command::CommandTrigger;
 use trigger_sqs::SqsTrigger;
-use trigger_amqp::AmqpTrigger;
 use url::Url;
 
 const SPIN_ADDR: &str = "0.0.0.0:80";
