@@ -36,10 +36,10 @@ jobs:
           sudo apt-get install -y protobuf-compiler libseccomp-dev
       - name: build ${{ matrix.shims.name }}
         run: |
-          VERBOSE=1 make build SHIMS=${{ matrix.shims.name }}
+          make build SHIMS=${{ matrix.shims.name }}
       - name: unit tests ${{ matrix.shims.name }}
         run: |
-          VERBOSE=1 make unit-tests  SHIMS=${{ matrix.shims.name }}
+          make unit-tests  SHIMS=${{ matrix.shims.name }}
       - name: lowercase the runner OS name
         shell: bash
         run: |
