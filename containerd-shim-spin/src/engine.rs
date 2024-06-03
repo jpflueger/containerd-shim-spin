@@ -26,6 +26,7 @@ use spin_trigger_redis::RedisTrigger;
 use tokio::runtime::Runtime;
 use trigger_command::CommandTrigger;
 use trigger_sqs::SqsTrigger;
+use trigger_amqp::AmqpTrigger;
 use url::Url;
 
 const SPIN_ADDR: &str = "0.0.0.0:80";
@@ -247,6 +248,15 @@ impl SpinEngine {
 
                     info!(" >>> running spin trigger");
                     sqs_trigger.run(spin_trigger::cli::NoArgs)
+                }
+                AmqpTrigger::TRIGGER_TYPE => {
+                    let amqp_trigger: AmqpTrigger = self
+                        .build_spin_trigger(working_dir.clone(), app.clone(), app_source.clone())
+                        .await
+                        .context("failed to build spin trigger")?;
+
+                    info!(" >>> running amqp trigger");
+                    amqp_trigger.run(spin_trigger::cli::NoArgs)
                 }
                 CommandTrigger::TRIGGER_TYPE => {
                     let command_trigger: CommandTrigger = self
@@ -486,9 +496,10 @@ fn trigger_command_for_resolved_app_source(resolved: &ResolvedAppSource) -> Resu
             RedisTrigger::TRIGGER_TYPE
             | HttpTrigger::TRIGGER_TYPE
             | SqsTrigger::TRIGGER_TYPE
+            | AmqpTrigger::TRIGGER_TYPE
             | CommandTrigger::TRIGGER_TYPE => types.push(trigger_type),
             _ => {
-                todo!("Only Http, Redis and SQS triggers are currently supported.")
+                todo!("Only Http, Redis, SQS and AMQP triggers are currently supported.")
             }
         }
     }
