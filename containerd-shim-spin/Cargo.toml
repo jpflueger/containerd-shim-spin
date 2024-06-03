@@ -21,7 +21,7 @@ spin-componentize = { git = "https://github.com/fermyon/spin", tag = "v2.5.1" }
 spin-trigger = { git = "https://github.com/fermyon/spin", tag = "v2.5.1", features = ["unsafe-aot-compilation"] }
 spin-trigger-http = { git = "https://github.com/fermyon/spin", tag = "v2.5.1" }
 spin-trigger-redis = { git = "https://github.com/fermyon/spin", tag = "v2.5.1" }
-trigger-amqp = { git = "https://github.com/jpflueger/spin-trigger-amqp", rev = "58c72a238f9a182c1ea71d9a248839007a363d8a" }
+trigger-amqp = { git = "https://github.com/jpflueger/spin-trigger-amqp", rev = "0b708f240af9522782299440d70bdfdd47832d04" }
 trigger-sqs = { git = "https://github.com/fermyon/spin-trigger-sqs", rev = "b0230d1de5c14141d1f1c8bfa90f2ae538cfe44d" }
 trigger-command = { git = "https://github.com/fermyon/spin-trigger-command", rev = "27131158f19c4791bf019c29a0522638b37c5ba0" }
 spin-manifest = { git = "https://github.com/fermyon/spin", tag = "v2.5.1" }
