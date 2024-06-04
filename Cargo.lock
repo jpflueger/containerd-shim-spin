@@ -7729,7 +7729,7 @@ dependencies = [
 [[package]]
 name = "trigger-amqp"
 version = "0.1.0"
-source = "git+https://github.com/jpflueger/spin-trigger-amqp?rev=5d110fbe0de8a57b3c52b687fd91f726be9a0022#5d110fbe0de8a57b3c52b687fd91f726be9a0022"
+source = "git+https://github.com/jpflueger/spin-trigger-amqp?rev=bbbaef16840dc4a1297dc9e34a362661260c7c1c#bbbaef16840dc4a1297dc9e34a362661260c7c1c"
 dependencies = [
  "anyhow",
  "clap",
