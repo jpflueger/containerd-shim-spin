@@ -256,7 +256,9 @@ impl SpinEngine {
                         .context("failed to build spin trigger")?;
 
                     info!(" >>> running amqp trigger");
-                    amqp_trigger.run(spin_trigger::cli::NoArgs)
+                    amqp_trigger.run(trigger_amqp::CliArgs {
+                        test: false,
+                    })
                 }
                 CommandTrigger::TRIGGER_TYPE => {
                     let command_trigger: CommandTrigger = self
